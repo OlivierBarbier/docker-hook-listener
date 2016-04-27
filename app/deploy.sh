@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo test
-docker pull mjhea0/flask-docker-workflow
-docker stop flask
-docker rm flask
-docker run --name flask -d -p 80:80 mjhea0/flask-docker-workflow
+docker pull hokmah/tiller-back
+docker stop backend
+docker rm backend
+docker run --name backend -d -p 80:80 hokmah/tiller-back
