@@ -1,10 +1,16 @@
 # start with a base image
-FROM ubuntu:14.10
+FROM alpine:latest
 MAINTAINER Real Python <info@realpython.com>
 
 # install dependencies
-RUN apt-get update
-RUN apt-get install -y python-pip
+RUN apk add --update \
+    python \
+    python-dev \
+    py-pip \
+    build-base \
+  && pip install virtualenv \
+  && rm -rf /var/cache/apk/*
+
 RUN pip install flask
 
 # update working directories
